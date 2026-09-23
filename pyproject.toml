@@ -1,0 +1,15 @@
+[project]
+name = "dl-pracs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "scikit-learn>=1.9.1",
+    "torch>=2.14.0",
+]
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
