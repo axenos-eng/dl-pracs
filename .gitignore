@@ -3,3 +3,5 @@ __pycache__/
 *.pdf
 tmp
 lab2/creditcard.csv
+lab3/runs/*/model.pt
+lab3/data/

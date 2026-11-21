@@ -1,0 +1,124 @@
+{
+  "run": "unfreeze_seed1",
+  "settings": {
+    "seed": 1,
+    "regime": "unfreeze",
+    "train_transforms": [
+      "RandomResizedCrop(size=(160, 160), scale=(0.7, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)",
+      "RandomHorizontalFlip(p=0.5)",
+      "ToTensor()",
+      "Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))"
+    ],
+    "eval_transforms": [
+      "Resize(size=(160, 160), interpolation=bilinear, max_size=None, antialias=True)",
+      "ToTensor()",
+      "Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))"
+    ],
+    "weights": "IMAGENET1K_V1",
+    "fc": "Linear(in_features=512, out_features=6, bias=True)",
+    "lr_groups": [
+      [
+        [
+          "fc"
+        ],
+        0.003
+      ],
+      [
+        [
+          "layer4"
+        ],
+        0.0003
+      ]
+    ],
+    "eval_modules": [
+      "conv1",
+      "bn1",
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "batchnorm": {
+      "momentum": 0.1,
+      "eps": 1e-05
+    },
+    "optimizer": "AdamW",
+    "optimizer_args": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": null,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null,
+      "decoupled_weight_decay": true
+    },
+    "loss": "CrossEntropyLoss",
+    "epochs": 8,
+    "train_batch": 32,
+    "eval_batch": 64,
+    "shuffle": true,
+    "drop_last": false,
+    "num_workers": 0
+  },
+  "git": {
+    "commit": "76cc94ee1b47701a4301fc9c475e05ab8f31d18e",
+    "dirty": true
+  },
+  "split_sha256": "148dad92de9a18670c177df9f8757aa6519fb0ea6d74a8ba723cfc4453f0a1bc",
+  "versions": {
+    "python": "3.12.4",
+    "torch": "2.14.0",
+    "torchvision": "0.29.2"
+  },
+  "device": "mps (arm64, macOS-27.2.1-arm64-arm-64bit)",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5430826663970947,
+      "val_macro_f1": 0.8963456455631551
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.19351888169844944,
+      "val_macro_f1": 0.8893803952856697
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.11461343680818875,
+      "val_macro_f1": 0.8713416344461904
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0893629643941919,
+      "val_macro_f1": 0.896753265165676
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.05198822007824977,
+      "val_macro_f1": 0.8961702203141786
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.07508426580578088,
+      "val_macro_f1": 0.8913672185503745
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.08088220868259668,
+      "val_macro_f1": 0.899623976561701
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.06849978366556267,
+      "val_macro_f1": 0.8692113825207292
+    }
+  ],
+  "final_train_loss": 0.06849978366556267,
+  "final_val_macro_f1": 0.8692113825207292,
+  "train_seconds": 29.202106830925914
+}
